@@ -1,0 +1,137 @@
+<div *ngIf="isLoggedIn" >
+<header class="bg-dark py-5">
+
+  <div class="container px-4 px-lg-5 my-5">
+
+    <button class="btn btn-primary"   routerLink="/home">
+      Home
+    </button>
+    <button class="btn btn-primary" style="margin-left: 70vw ; " routerLink="/login">
+      logout
+    </button>
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">COSY SHOP</h1>
+      <p class="lead fw-normal text-white-50 mb-0">Bienvenue dans la monde des technologies </p>
+    </div>
+  </div>
+</header>
+<br>
+<!-- Section-->
+<div class="row">
+  <div class="col-md-5">
+   </div>
+  <div class="col-md-3">
+    <button data-toggle="modal" data-target="#logoutModal"  class="tm-btn" style="background-color: transparent ; margin-top: 100px;margin-bottom: 50px"  (click)="show()" >
+      Add Product
+    </button>
+  </div>
+</div>
+
+<div class="modal-content" *ngIf="x">
+  <form [formGroup]="addForm" (ngSubmit)="addProduct()">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"> Add Product</h5>
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+
+    <div class="row ">
+      <div class="col-4 ">
+        <label style="color: black" > <b>Product Name</b></label>
+        <input formControlName="productName" type="text"   class="form-control-plaintext "  placeholder="name here">
+      </div>
+      <div class="col-2 form-group">
+        <label style="color: black" > <b>Description</b></label>
+        <input formControlName="description" type="email" class="form-control-plaintext"   placeholder="description here">
+      </div>
+      <div class="col-2 form-group">
+        <label style="color: black" > <b>Product Price</b></label>
+        <input formControlName="price" type="text"  class="form-control-plaintext "  placeholder="Price here">
+      </div>
+      <div class="col-2 form-group">
+        <label >Image input</label>
+        <input  formControlName="url" type="file" class="form-control-file" >
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-danger"  type="reset"  >Cancel</button>
+      <button class="btn btn-success" type="submit" style="color:white" [disabled]="addForm.invalid">Add Product</button>
+    </div>
+  </form>
+</div>
+<!-- gallery page 1 -->
+<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+  <div *ngFor="let product of products; let i = index ">
+    <article class="col-lg-3 col-md-3 col-sm-5 col-4 tm-gallery-item"  >
+      <figure>
+        <img src={{product.url}} alt="Image" class="img-fluid tm-gallery-img" style="border-radius: 50px" />
+        <figcaption>
+          <h4 class="tm-gallery-title">{{product.productName}}</h4>
+          <p class="tm-gallery-description">{{product.description}}</p>
+          <div class="row">
+            <div class="col-md-4" >
+              <p  class="tm-gallery-price">{{product.price}} DT
+              </p>
+            </div>
+            <div class="col-md-4">
+              <button class="tm-btn" style="background-color: transparent"  (click)="update(i)">
+               UPDATE
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button class="tm-btn" style="background-color: transparent"    (click)="delete(i)">
+                DELETE
+              </button>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+  </div>
+</div> <!-- gallery page 1 -->
+<!-- Footer
+<footer class="py-4 bg-dark">
+  <div class="container"><p class="m-0 text-center text-white">Spring Boot &copy; 2021</p></div>
+</footer>
+-->
+<!--<div  class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="addForm" (ngSubmit)="addProduct()">-->
+<!--        <div class="modal-header">-->
+<!--          <h5 class="modal-title" id="exampleModalLabel"> Add Product</h5>-->
+<!--          <button class="close" type="button" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">×</span>-->
+<!--          </button>-->
+<!--        </div>-->
+
+<!--        <div class="row ">-->
+<!--            <div class="col-4 ">-->
+<!--              <label style="color: black" > <b>Product Name</b></label>-->
+<!--              <input formControlName="productName" type="text"   class="form-control-plaintext "  placeholder="name here">-->
+<!--            </div>-->
+<!--            <div class="col-2 form-group">-->
+<!--              <label style="color: black" > <b>Description</b></label>-->
+<!--              <input formControlName="description" type="email" class="form-control-plaintext"   placeholder="description here">-->
+<!--            </div>-->
+<!--            <div class="col-2 form-group">-->
+<!--              <label style="color: black" > <b>Product Price</b></label>-->
+<!--              <input formControlName="price" type="text"  class="form-control-plaintext "  placeholder="Price here">-->
+<!--            </div>-->
+<!--            <div class="col-2 form-group">-->
+<!--              <label >Image input</label>-->
+<!--              <input  formControlName="url" type="file" class="form-control-file" >-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="modal-footer">-->
+<!--          <button class="btn btn-danger"  type="reset"  >Cancel</button>-->
+<!--          <button class="btn btn-success" type="submit" style="color:white"  >Add Product</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+</div>
