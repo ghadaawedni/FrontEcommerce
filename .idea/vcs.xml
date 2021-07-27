@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Ecommerce/Ecommerce" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/back/src/main/java" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ecommerc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ecommerc/src" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ecommerc/src/main" vcs="Git" />
